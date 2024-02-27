@@ -1,0 +1,21 @@
+name: Testing send email custom action
+
+on: 
+  workflow_dispatch
+
+jobs:
+  sendEmail:
+    name: sendemail
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v4
+      - run: npm ci
+      - name: Send Email
+        uses: ./
+        with:
+          to: "subhadip.sahoo@tier5.in"
+          subject: "Success ! Email sent using custom github action"
+          html_body: "Hey there ! <br> <br> <p> You know what ! This email has been sent to you using <b>custom github action</b>. Don't forget to give treat to the <strong>Engineer</strong>"
+
+

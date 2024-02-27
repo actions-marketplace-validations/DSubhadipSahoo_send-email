@@ -1,0 +1,18 @@
+name: Send Email
+description: Send email to a recipients
+author: Tier5
+
+inputs:
+  to:
+    description: Recipient email address
+    required: true
+  subject:
+    description: Subject of email
+    required: true
+  html_body:
+    description: Email body in HTML format
+    required: true
+
+runs:
+  using: node16
+  main: src/index.js

@@ -12,6 +12,9 @@ inputs:
   html_body:
     description: Email body in HTML format
     required: true
+  attachment:
+    description: File path to attach with email
+    required: false
 
 runs:
   using: node16

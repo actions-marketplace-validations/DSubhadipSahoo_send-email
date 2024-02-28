@@ -17,5 +17,6 @@ jobs:
           to: "subhadip.sahoo@tier5.in"
           subject: "Success ! Email sent using custom github action"
           html_body: "Hey there ! <br> <br> <p> You know what ! This email has been sent to you using <b>custom github action</b>. Don't forget to give treat to the <strong>Engineer</strong>"
+          attachment: "data/attachment.txt"
 
 

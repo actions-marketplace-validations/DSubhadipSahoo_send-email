@@ -35,7 +35,7 @@ module.exports = {
             html: core.getInput("html_body", {required: true}),
             attachments: [
                 {
-                    path: "./data/attachment.txt"
+                    path: core.getInput("attachment", {required: false})
                 }
             ]
         }

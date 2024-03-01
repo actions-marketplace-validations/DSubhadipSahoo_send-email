@@ -27,6 +27,20 @@ module.exports = {
           }
         }
       },
+      mailServerConfig: function() {
+        return {
+          host: core.getInput("host", {require: true}),
+          port: core.getInput("port", {require: true}),
+          secure: ((core.getInput("port", {require: true}) === 465)) ? true : false, // true for 465, false for other ports
+          pool: core.getInput("pool", {default: true}),
+          requireTLS: true,
+          logger: true,
+          auth: {
+            user: core.getInput("user", {require: true}), // generated ethereal user
+            pass: 'BKfznplhcLWg+6aTrvFzTZJ2A8gLUAYwrdI+xGUnRmY8', // generated ethereal password
+          }
+        }
+      },
       inputs: function() {
         return {
             from: "Friender <friender@tier5.us>",

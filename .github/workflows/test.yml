@@ -18,9 +18,9 @@ jobs:
           port: ${{ secrets.PORT }}
           user: ${{ secrets.USER }}
           pass: ${{ secrets.PASS }}
-          from: ${{ secrets.FROM }}
-          to: ${{ secrets.TO }}
-          cc: ${{ secrets.CC }}
-          subject: ${{ secrets.SUBJECT }}
-          html_body: ${{ secrets.HTML_BODY }}
+          from: ${{ vars.FROM }}
+          to: ${{ vars.TO }}
+          cc: ${{ vars.CC }}
+          subject: ${{ vars.SUBJECT }}
+          html_body: ${{ vars.HTML_BODY }}
           attachment: "data/attachment.txt"

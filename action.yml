@@ -1,9 +1,30 @@
 name: Send Email
 description: Send email to a recipients
 author: Tier5
+branding:
+  icon: mail
+  color: blue
 
 inputs:
+  host:
+    description: SMTP server host address
+    required: true
+  port:
+    description: SMTP server port address
+    required: true
+  user:
+    description: Authenticate with this username to SMTP server
+    required: true
+  pass:
+    description: Authenticate with this password to SMTP server
+    required: true
+  from:
+    description: From email address
+    required: true
   to:
+    description: Recipient email address
+    required: true
+  cc:
     description: Recipient email address
     required: true
   subject:

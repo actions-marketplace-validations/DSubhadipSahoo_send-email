@@ -2,56 +2,29 @@
 const core = require("@actions/core")
 
 module.exports = {
-    smtpConfig: function() {
-      return {
-        host: "smtp.gmail.com",
-        port: 465,
-        secure: true, // true for 465, false for other ports
-        auth: {
-          user: 'devsupport@redbeltsoftware.com', // generated ethereal user
-          pass: 'Redbelt@2', // generated ethereal password
-        }
-      }
-    },
-    SESConfig: function() {
-        return {
-          host: "email-smtp.us-east-1.amazonaws.com",
-          port: 465,
-          secure: true, // true for 465, false for other ports
-          pool: true,
-          requireTLS: true,
-          logger: true,
-          auth: {
-            user: 'AKIAQYPXCYQR2WA56SXX', // generated ethereal user
-            pass: 'BKfznplhcLWg+6aTrvFzTZJ2A8gLUAYwrdI+xGUnRmY8', // generated ethereal password
-          }
-        }
-      },
       mailServerConfig: function() {
         return {
           host: core.getInput("host", {require: true}),
           port: core.getInput("port", {require: true}),
           secure: ((core.getInput("port", {require: true}) === 465)) ? true : false, // true for 465, false for other ports
           pool: core.getInput("pool", {default: true}),
-          requireTLS: true,
           logger: true,
           auth: {
             user: core.getInput("user", {require: true}), // generated ethereal user
-            pass: 'BKfznplhcLWg+6aTrvFzTZJ2A8gLUAYwrdI+xGUnRmY8', // generated ethereal password
+            pass: core.getInput("pass", {require: true}), // generated ethereal password
           }
         }
       },
       inputs: function() {
+        const cc = core.getInput("cc", { required: false })
+        const attachment = core.getInput("attachment", {required: false})
         return {
-            from: "Friender <friender@tier5.us>",
+            from: core.getInput("from", {required: true}),
             to: core.getInput("to", {required: true}),
+            cc: cc ? cc : undefined,
             subject: core.getInput("subject", { required: true }),
             html: core.getInput("html_body", {required: true}),
-            attachments: [
-                {
-                    path: core.getInput("attachment", {required: false})
-                }
-            ]
+            attachments: attachment ? [{ path: attachment}] : undefined
         }
     }
 };

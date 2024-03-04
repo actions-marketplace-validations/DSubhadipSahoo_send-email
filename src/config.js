@@ -7,7 +7,8 @@ module.exports = {
           host: core.getInput("host", {require: true}),
           port: core.getInput("port", {require: true}),
           secure: ((core.getInput("port", {require: true}) === 465)) ? true : false, // true for 465, false for other ports
-          pool: core.getInput("pool", {default: true}),
+          // pool: core.getInput("pool", {default: true}),
+          pool: true,
           requireTLS: true,
           logger: true,
           auth: {

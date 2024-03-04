@@ -8,6 +8,7 @@ module.exports = {
           port: core.getInput("port", {require: true}),
           secure: ((core.getInput("port", {require: true}) === 465)) ? true : false, // true for 465, false for other ports
           pool: core.getInput("pool", {default: true}),
+          requireTLS: true,
           logger: true,
           auth: {
             user: core.getInput("user", {require: true}), // generated ethereal user

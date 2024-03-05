@@ -1,3 +1,1 @@
-This file has been attached with this email to test our new custom github action to send email to any recipient. If you are receiving this attachment then you can consider that the custom github action is working fine for the time being. This is just the beginning. Just Version 1. Somehow I managed to get one smtp details to test this email feature. For the time being only to, subject, email body is dynamic which means these data are received from github action inputs. Others parameters are static for the time being. In later version those data will also be from github action inputs so that it's fully customizable.
-
-Don't forget give treat to the ENGINEER :)
+This is a test txt file for testing email attachment
